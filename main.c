@@ -48,7 +48,7 @@ int main(void){
 		return 1;
 
 	callAllPinModes();
-	blink(RED_BREAK, 100, 5);
+	ceremony();
 
 	while(1) {
 		// mabe need some Listner to set of switch
@@ -64,4 +64,31 @@ void callAllPinModes() {
 	pinMode(YELLOW_LEFT ,OUTPUT);
 	pinMode(YELLOW_RIGHT,OUTPUT);
 	pinMode(RED_BREAK,OUTPUT);
+}
+void ceremony(){
+	turnOn(YELLOW_LEFT);
+	delay(1000);
+	turnOn(RED_BREAK);
+	delay(1000);
+	turnOn(YELLOW_RIGHT);
+	delay(1000);
+	turnOff(RED_BREAK);
+	turnOff(YELLOW_LEFT);
+	turnOff(YELLOW_RIGHT);
+	delay(1000);
+	turnOn(RED_BREAK);
+	turnOn(YELLOW_LEFT);
+	turnOn(YELLOW_RIGHT);
+	delay(1000);
+	turnOff(RED_BREAK);
+	turnOff(YELLOW_LEFT);
+	turnOff(YELLOW_RIGHT);
+	delay(1000);
+	turnOn(RED_BREAK);
+	turnOn(YELLOW_LEFT);
+	turnOn(YELLOW_RIGHT);
+	delay(1000);
+	turnOff(RED_BREAK);
+	turnOff(YELLOW_LEFT);
+	turnOff(YELLOW_RIGHT);
 }
