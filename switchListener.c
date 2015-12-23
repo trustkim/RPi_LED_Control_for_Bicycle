@@ -1,7 +1,7 @@
 /* for debouncedBtnRead */
 #define BREAK 0
-#define LEFT 1
-#define RIGHT 2
+// #define LEFT 1
+// #define RIGHT 2
 
 /* for signal control, they needs check by four ways */
 // #define BT_STATE_OFF 0  // LOW -> LOW
