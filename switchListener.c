@@ -1,3 +1,9 @@
+/**
+  * @file switchListener.c
+  * @author TK (trustkim@pukyong.ac.kr), lastman (junho5656@naver.com)
+  * @version v1.0
+  */
+
 /* for debouncedBtnRead */
 #define BREAK 0
 
@@ -9,6 +15,9 @@ int debouncedLastBtnState[3] = {LOW, LOW, LOW};
 long lastDebounceTime_ms[3] = {0,0,0};
 long debounceDelay = 50;
 
+/**
+  * @referenc https://www.arduino.cc/en/Tutorial/Debounce
+  */
 void debouncedBtnRead(const int switch_index) {
   btnVolts[switch_index] = digitalRead(swPinIndexes[switch_index]);
 

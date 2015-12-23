@@ -1,3 +1,9 @@
+/**
+  * @file signalLED.c
+  * @author TK (trustkim@pukyong.ac.kr), lastman (junho5656@naver.com)
+  * @version v1.0
+  */
+
 const int LED_indexes[2] = {YELLOW_LEFT, YELLOW_RIGHT};
 int LED_States[2] = {LOW, LOW};
 

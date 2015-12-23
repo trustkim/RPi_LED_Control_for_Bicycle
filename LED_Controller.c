@@ -1,3 +1,9 @@
+/**
+  * @file LED_Controller.c
+  * @author TK (trustkim@pukyong.ac.kr), lastman (junho5656@naver.com)
+  * @version v1.0
+  */
+
 void blink(int PIN_NUM, int interval_ms, int count);
 void turnOn(int PIN_NUM);
 void turnOff(int PIN_NUM);
