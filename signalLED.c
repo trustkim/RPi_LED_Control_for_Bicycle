@@ -7,7 +7,7 @@ int LED_States[2] = {LED_STATE_OFF, LED_STATE_OFF};
 void runSignalLED() {
   int i;
   for(i=1;i<3;i++) {
-    if(signalStates[i]==SIG_ON) {
+    if(curBtnState[i]==HIGH) {
       if(LED_States[i-1]==LED_STATE_ON) {
         turnOff(LED_indexes[i-1]);
         LED_States[i-1]=LED_STATE_OFF;
@@ -15,10 +15,22 @@ void runSignalLED() {
         turnOn(LED_indexes[i-1]);
         LED_States[i-1]=LED_STATE_ON;
       }
-    } else {
+    } eles {
       turnOff(LED_indexes[i-1]);
       LED_States[i-1] = LED_STATE_OFF;
     }
+    // if(signalStates[i]==SIG_ON) {
+    //   if(LED_States[i-1]==LED_STATE_ON) {
+    //     turnOff(LED_indexes[i-1]);
+    //     LED_States[i-1]=LED_STATE_OFF;
+    //   } else {
+    //     turnOn(LED_indexes[i-1]);
+    //     LED_States[i-1]=LED_STATE_ON;
+    //   }
+    // } else {
+    //   turnOff(LED_indexes[i-1]);
+    //   LED_States[i-1] = LED_STATE_OFF;
+    // }
   }
   //
   //
