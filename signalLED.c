@@ -8,7 +8,7 @@
 #define LED_STATE_ON 1
 
 // int btState=0;
-int sigState=0;
+int signalState=0;
 int left_LED_State=LED_STATE_OFF;
 int right_LED_State=LED_STATE_OFF;
 
