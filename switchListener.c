@@ -16,9 +16,9 @@
 #define LED_STATE_ON 1
 
 /* for debouncedBtnRead */
-int btnVolts[3];// = {LOW,LOW,LOW};
-int lastBtnState[3];// = {LOW,LOW,LOW};
-int curBtnState[3];// = {LOW,LOW,LOW};
+int btnVolts[3] = {LOW,LOW,LOW};
+int lastBtnState[3] = {LOW,LOW,LOW};
+int curBtnState[3] = {LOW,LOW,LOW};
 long lastDebouncedTime_ms[3] = {0, 0, 0};
 long debounceDelay = 50;
 
@@ -29,7 +29,7 @@ long debounceDelay = 50;
 int leftSignalState=SIG_OFF;
 int rightSignalState=SIG_OFF;
 
-void debouncedBtnRead(int switch_index) {
+void debouncedBtnRead(const int switch_index) {
   int btnVolts[switch_index] = digitalRead(swPinIndexes[switch_index]);
 
   if(btnVolts[switch_index] != lastBtnState[switch_index]) {
