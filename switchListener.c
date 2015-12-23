@@ -1,19 +1,5 @@
 /* for debouncedBtnRead */
 #define BREAK 0
-// #define LEFT 1
-// #define RIGHT 2
-
-/* for signal control, they needs check by four ways */
-// #define BT_STATE_OFF 0  // LOW -> LOW
-// #define BT_STATE_UP 1   // LOW -> HIGH
-// #define BT_STATE_ON 2   // HIGH -> HIGH
-// #define BT_STATE_DOWN 3 // HIGH -> LOW
-
-// /* for signalLED.c */
-// #define SIG_OFF 0
-// #define SIG_ON 1
-// #define LED_STATE_OFF 0
-// #define LED_STATE_ON 1
 
 /* for debouncedBtnRead */
 int btnVolts[3] = {LOW,LOW,LOW};
@@ -22,11 +8,6 @@ int curBtnState[3] = {LOW,LOW,LOW};
 int debouncedLastBtnState[3] = {LOW, LOW, LOW};
 long lastDebounceTime_ms[3] = {0,0,0};
 long debounceDelay = 50;
-
-/* for signalLED.c */
-// int signalStates[2] = {SIG_OFF, SIG_OFF};
-// int leftSignalState = SIG_OFF;
-// int rightSignalState = SIG_OFF;
 
 void debouncedBtnRead(const int switch_index) {
   btnVolts[switch_index] = digitalRead(swPinIndexes[switch_index]);
@@ -51,24 +32,3 @@ void updateButtonState() {
     debouncedBtnRead(i);
   }
 }
-
-// int checkSignalState(int switch_index) {
-//   debouncedLastBtnState[switch_index] = curBtnState[switch_index];
-//   if(debouncedLastBtnState[switch_index]==LOW && curBtnState[switch_index]==LOW)
-//     return BT_STATE_OFF;
-//   else if(debouncedLastBtnState[switch_index]==LOW && curBtnState[switch_index]==HIGH)
-//     return BT_STATE_UP;
-//   else if(debouncedLastBtnState[switch_index]==HIGH && curBtnState[switch_index]==HIGH)
-//       return BT_STATE_ON;
-//   else if(debouncedLastBtnState[switch_index]==HIGH && curBtnState[switch_index]==LOW)
-//     return BT_STATE_DOWN;
-//   else return -1;
-// }
-// void updagteSignal() {
-//   int i;
-//   for (i=1;i<3;i++) { // check without RED_LED
-//     if(checkSignalState(i) == BT_STATE_ON)
-//       signalStates[i-1] = SIG_ON;
-//     else signalStates[i-1] = SIG_OFF;
-//   }
-// }

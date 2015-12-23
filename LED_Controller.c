@@ -1,4 +1,7 @@
-#include "LED_Controller.h"
+void blink(int PIN_NUM, int interval_ms, int count);
+void turnOn(int PIN_NUM);
+void turnOff(int PIN_NUM);
+void ceremony();
 
 void blink(int PIN_NUM, int interval_ms, int count){
 	int i;
@@ -9,13 +12,14 @@ void blink(int PIN_NUM, int interval_ms, int count){
 		delay(interval_ms);
 	}
 }
-
 void turnOn(int PIN_NUM) {
 	digitalWrite(PIN_NUM, HIGH);
 }
 void turnOff(int PIN_NUM) {
 	digitalWrite(PIN_NUM, LOW);
 }
+
+/* */
 void ceremony(){
 	turnOn(YELLOW_LEFT);
 	delay(500);
