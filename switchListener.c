@@ -4,7 +4,7 @@
 #define BT_STATE_DOWN 3 // HIGH -> LOW
 
 /* for signalLED.c */
-#define SIG_ON 0
+#define SIG_OFF 0
 #define SIG_ON 1
 #define LED_STATE_OFF 0
 #define LED_STATE_ON 1
