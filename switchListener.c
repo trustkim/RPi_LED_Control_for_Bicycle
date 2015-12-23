@@ -16,7 +16,7 @@ long lastDebounceTime_ms[3] = {0,0,0};
 long debounceDelay = 50;
 
 /**
-  * @referenc https://www.arduino.cc/en/Tutorial/Debounce
+  * @reference https://www.arduino.cc/en/Tutorial/Debounce
   */
 void debouncedBtnRead(const int switch_index) {
   btnVolts[switch_index] = digitalRead(swPinIndexes[switch_index]);
