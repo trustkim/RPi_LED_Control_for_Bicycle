@@ -19,6 +19,7 @@
 int btnVolts[3] = {LOW,LOW,LOW};
 int lastBtnState[3] = {LOW,LOW,LOW};
 int curBtnState[3] = {LOW,LOW,LOW};
+int debouncedLastBtnState[3] = {LOW, LOW, LOW};
 long lastDebounceTime_ms[3] = {0,0,0};
 long debounceDelay = 50;
 
@@ -52,13 +53,14 @@ void updateButtonState() {
 }
 
 int checkSignalState(int switch_index) {
-  if(lastBtnState[switch_index]==LOW && curBtnState[switch_index]==LOW)
+  debouncedLastBtnState[switch_index] = curBtnState[switch_index];
+  if(debouncedLastBtnState[switch_index]==LOW && curBtnState[switch_index]==LOW)
     return BT_STATE_OFF;
-  else if(lastBtnState[switch_index]==LOW && curBtnState[switch_index]==HIGH)
+  else if(debouncedLastBtnState[switch_index]==LOW && curBtnState[switch_index]==HIGH)
     return BT_STATE_UP;
-  else if(lastBtnState[switch_index]==HIGH && curBtnState[switch_index]==HIGH)
+  else if(debouncedLastBtnState[switch_index]==HIGH && curBtnState[switch_index]==HIGH)
       return BT_STATE_ON;
-  else if(lastBtnState[switch_index]==HIGH && curBtnState[switch_index]==LOW)
+  else if(debouncedLastBtnState[switch_index]==HIGH && curBtnState[switch_index]==LOW)
     return BT_STATE_DOWN;
   else return -1;
 }
