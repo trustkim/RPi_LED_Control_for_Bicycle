@@ -20,6 +20,7 @@ int rightSignalState=SIG_OFF;
 //   return digitalRead(PIN_NUM);
 // }
 
+// check all button's state using debouncedReadButton
 int checkButtonState(int PIN_NUM) {
   return digitalRead(PIN_NUM);
 }
