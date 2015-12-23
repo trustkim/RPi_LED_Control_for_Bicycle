@@ -1,5 +1,5 @@
 
-int LED_indexes[2] = {YELLOW_LEFT, YELLOW_RIGHT};
+const int LED_indexes[2] = {YELLOW_LEFT, YELLOW_RIGHT};
 int LED_States[2] = {LED_STATE_OFF, LED_STATE_OFF};
 // int left_LED_State=LED_STATE_OFF;
 // int right_LED_State=LED_STATE_OFF;
@@ -15,7 +15,7 @@ void runSignalLED() {
         turnOn(LED_indexes[i-1]);
         LED_States[i-1]=LED_STATE_ON;
       }
-    } eles {
+    } else {
       turnOff(LED_indexes[i-1]);
       LED_States[i-1] = LED_STATE_OFF;
     }
