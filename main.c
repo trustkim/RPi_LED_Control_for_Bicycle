@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include "main.h"
+#include "LED_Controller.c"
+#include "switchListener.c"
+#include "breakLED.c"
+#include "signalLED.c"
 
 /*
 void breakOn(){
@@ -48,7 +52,7 @@ int main(void){
 
 	while(1) {
 		// mabe need some Listner to set of switch
-		
+
 		runBreakLED();
 		runSignalLED();
 	}
