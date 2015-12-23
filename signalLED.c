@@ -12,9 +12,6 @@ int sigState=0;
 int left_LED_State=LED_STATE_OFF;
 int right_LED_State=LED_STATE_OFF;
 
-int checkButtonState() {
-  return BT_STATE_OFF;
-}
 // int checkSignalState() {
 //   return LEFT_SIG;
 // }
