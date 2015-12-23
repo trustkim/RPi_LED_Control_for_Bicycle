@@ -10,3 +10,4 @@
 #define SW_RIGHT 3
 
 void callAllPinModes();
+void ceremony();
