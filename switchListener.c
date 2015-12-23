@@ -33,10 +33,10 @@ void debouncedBtnRead(const int switch_index) {
   btnVolts[switch_index] = digitalRead(swPinIndexes[switch_index]);
 
   if(btnVolts[switch_index] != lastBtnState[switch_index]) {
-    lastDebounceTime_ms = millis();
+    lastDebounceTime_ms[switch_index] = millis();
   }
 
-  if((millis() - lastDebounceTime_ms) > debounceDelay) {
+  if((millis() - lastDebounceTime_ms[switch_index]) > debounceDelay) {
     if(btnVolts[switch_index] != curBtnState[switch_index]) {
       curBtnState[switch_index] = btnVolts[switch_index];
     }
