@@ -52,7 +52,7 @@ int main(void){
 
 	while(1) {
 		// mabe need some Listner to set of switch
-
+		updateButtonState();
 		runBreakLED();
 		runSignalLED();
 	}
