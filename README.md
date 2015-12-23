@@ -11,3 +11,10 @@
 - RASPBIAN OS (Jessie)
 - Raspberry Pi GPIO Setup
 - Install WiringPi
+
+## Bill of materials
+- Switch
+- 6 x LED(red)
+- 4 x LED(yellow)
+- Gryo sensor
+- Raspberry Pi Model B with RAM 512MB
