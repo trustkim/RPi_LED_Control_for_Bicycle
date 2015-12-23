@@ -5,8 +5,6 @@
 - For safety bicycle life, it can control the Backward LED synced with break lever
 - Using gryo sensor, it can control the LEFT or RIGHT LED
 
-## Demo architecture
-![alt tag](https://drive.google.com/file/d/0B6d2O7F3oybtN1J4eWdzTmQ1XzQ/view?usp=sharing)
 ## System software and configuration
 - RASPBIAN OS (Jessie)
 - Raspberry Pi GPIO Setup
