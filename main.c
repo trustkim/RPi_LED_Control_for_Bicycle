@@ -53,6 +53,7 @@ int main(void){
 	while(1) {
 		// mabe need some Listner to set of switch
 		updateButtonState();
+		updagteSignal();
 		runBreakLED();
 		runSignalLED();
 	}
@@ -64,7 +65,7 @@ void callAllPinModes() {
 	pinMode(YELLOW_LEFT ,OUTPUT);
 	pinMode(YELLOW_RIGHT,OUTPUT);
 	pinMode(RED_BREAK,OUTPUT);
-	
+
 	turnOff(RED_BREAK);
 	turnOff(YELLOW_LEFT);
 	turnOff(YELLOW_RIGHT);
