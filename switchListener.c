@@ -19,7 +19,7 @@
 int btnVolts[3] = {LOW,LOW,LOW};
 int lastBtnState[3] = {LOW,LOW,LOW};
 int curBtnState[3] = {LOW,LOW,LOW};
-long lastDebouncedTime_ms[3] = {0.0, 0.0, 0.0};
+long lastDebounceTime_ms[3] = {0.0, 0.0, 0.0};
 long debounceDelay = 50;
 
 // int btBreakState = BT_STATE_OFF;
@@ -30,13 +30,13 @@ int leftSignalState=SIG_OFF;
 int rightSignalState=SIG_OFF;
 
 void debouncedBtnRead(const int switch_index) {
-  int btnVolts[switch_index] = digitalRead(swPinIndexes[switch_index]);
+  btnVolts[switch_index] = digitalRead(swPinIndexes[switch_index]);
 
   if(btnVolts[switch_index] != lastBtnState[switch_index]) {
-    lastDebouncedTime_ms = millis();
+    lastDebounceTime_ms = millis();
   }
 
-  if((millis() - lastDebouncedTime_ms) > debounceDelay) {
+  if((millis() - lastDebounceTime_ms) > debounceDelay) {
     if(btnVolts[switch_index] != curBtnState[switch_index]) {
       curBtnState[switch_index] = btnVolts[switch_index];
     }
