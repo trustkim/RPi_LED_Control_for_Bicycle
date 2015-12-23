@@ -29,9 +29,21 @@ long debounceDelay = 50;
 int leftSignalState=SIG_OFF;
 int rightSignalState=SIG_OFF;
 
-// int debouncedBtnRead(int PIN_NUM) {
-//   return digitalRead(PIN_NUM);
-// }
+void debouncedBtnRead(int switch_index) {
+  int btnVolts[switch_index] = digitalRead(swPinIndexes[witch_index]);
+
+  if(btnVolts[switch_index] != lastBtnState[switch_index]) {
+    lastDebouncedTime_ms = millis();
+  }
+
+  if((millis() - lastDebouncedTime_ms) > debounceDelay) {
+    if(btnVolts[switch_index] != curBtnState[switch_index]) {
+      curBtnState[switch_index] = btnVolts[switch_index];
+    }
+  }
+
+  lastBtnState[switch_index] = btnVolts[switch_index];
+}
 
 // check all button's state using debouncedBtnRead
 int checkButtonState(int PIN_NUM) {
@@ -49,11 +61,12 @@ void updateButtonState() {
 }
 
 void updagteSignal() {
-  if(btLeftState==BT_STATE_ON)
+  // TODO fix logical error
+  if(curBtnState[LEFT]==BT_STATE_ON)
     leftSignalState = SIG_ON;
   else leftSignalState = SIG_OFF;
 
-  if(btRightState==BT_STATE_ON)
+  if(curBtnState[RIGHT]==BT_STATE_ON)
     rightSignalState = SIG_ON;
   else rightSignalState = SIG_OFF;
 }
