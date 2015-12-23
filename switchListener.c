@@ -19,7 +19,7 @@
 int btnVolts[3] = {LOW,LOW,LOW};
 int lastBtnState[3] = {LOW,LOW,LOW};
 int curBtnState[3] = {LOW,LOW,LOW};
-long lastDebounceTime_ms[3] = {0.0, 0.0, 0.0};
+long lastDebounceTime_ms[3] = {0,0,0};
 long debounceDelay = 50;
 
 // int btBreakState = BT_STATE_OFF;
