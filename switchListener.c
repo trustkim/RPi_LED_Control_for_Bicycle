@@ -16,9 +16,9 @@
 #define LED_STATE_ON 1
 
 /* for debouncedBtnRead */
-int btnVolts[3] = {LOW,LOW,LOW};
-int lastBtnState[3] = {LOW,LOW,LOW};
-int curBtnState[3] = {LOW,LOW,LOW};
+int btnVolts[3];// = {LOW,LOW,LOW};
+int lastBtnState[3];// = {LOW,LOW,LOW};
+int curBtnState[3];// = {LOW,LOW,LOW};
 long lastDebouncedTime_ms[3] = {0, 0, 0};
 long debounceDelay = 50;
 
