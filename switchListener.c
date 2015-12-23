@@ -22,12 +22,10 @@ int curBtnState[3] = {LOW,LOW,LOW};
 long lastDebounceTime_ms[3] = {0,0,0};
 long debounceDelay = 50;
 
-// int btBreakState = BT_STATE_OFF;
-// int btLeftState = BT_STATE_OFF;
-// int btRightState = BT_STATE_OFF;
-
-int leftSignalState=SIG_OFF;
-int rightSignalState=SIG_OFF;
+/* for signalLED.c */
+int signalStates[2] = {SIG_OFF, SIG_OFF};
+// int leftSignalState = SIG_OFF;
+// int rightSignalState = SIG_OFF;
 
 void debouncedBtnRead(const int switch_index) {
   btnVolts[switch_index] = digitalRead(swPinIndexes[switch_index]);
@@ -46,27 +44,29 @@ void debouncedBtnRead(const int switch_index) {
 }
 
 // check all button's state using debouncedBtnRead
-int checkButtonState(int PIN_NUM) {
-  return digitalRead(PIN_NUM);
-}
-
 void updateButtonState() {
   int i;
   for(i=0;i<3;i++) {
     debouncedBtnRead(i);
   }
-  // btBreakState = checkButtonState(SW_BREAK);
-  // btLeftState = checkButtonState(SW_LEFT);
-  // btRightState = checkButtonState(SW_RIGHT);
 }
 
+int checkSignalState(int switch_index) {
+  if(lastBtnState[switch_index]==LOW && curBtnState[switch_index]==LOW)
+    return BT_STATE_OFF;
+  else if(lastBtnState[switch_index]==LOW && curBtnState[switch_index]==HIGH)
+    return BT_STATE_UP;
+  else if(lastBtnState[switch_index]==HIGH && curBtnState[switch_index]==HIGH)
+      return BT_STATE_ON;
+  else if(lastBtnState[switch_index]==HIGH && curBtnState[switch_index]==LOW)
+    return BT_STATE_DOWN;
+  else return -1;
+}
 void updagteSignal() {
-  // TODO fix logical error
-  if(curBtnState[LEFT]==BT_STATE_ON)
-    leftSignalState = SIG_ON;
-  else leftSignalState = SIG_OFF;
-
-  if(curBtnState[RIGHT]==BT_STATE_ON)
-    rightSignalState = SIG_ON;
-  else rightSignalState = SIG_OFF;
+  int i;
+  for (i=1;i<3;i++) { // check without RED_LED
+    if(checkSignalState(i) == BT_STATE_ON)
+      signalStates[i-1] = SIG_ON;
+    else signalStates[i-1] = SIG_OFF;
+  }
 }
