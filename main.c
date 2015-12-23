@@ -46,6 +46,12 @@ int main(void){
 	callAllPinModes();
 	blink(RED_BREAK, 100, 5);
 
+	while(1) {
+		// mabe need some Listner to set of switch
+		runBreakLED();
+		runSignalLED();
+	}
+
 	return 0;
 }
 

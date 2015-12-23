@@ -1,5 +1,7 @@
 #include <wiringPi.h>
 #include "LED_Controller.c"
+#include "breakLED.c"
+#include "signalLED.c"
 
 /* Pin mapping */
 #define RED_BREAK 1	// pin#right 9th
