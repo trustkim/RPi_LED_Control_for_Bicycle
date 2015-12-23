@@ -30,7 +30,7 @@ int leftSignalState=SIG_OFF;
 int rightSignalState=SIG_OFF;
 
 void debouncedBtnRead(int switch_index) {
-  int btnVolts[switch_index] = digitalRead(swPinIndexes[witch_index]);
+  int btnVolts[switch_index] = digitalRead(swPinIndexes[switch_index]);
 
   if(btnVolts[switch_index] != lastBtnState[switch_index]) {
     lastDebouncedTime_ms = millis();
