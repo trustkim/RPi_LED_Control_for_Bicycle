@@ -41,4 +41,6 @@ void runSignalLED() {
       break;
     }
   }
+
+  delay(100);
 }
